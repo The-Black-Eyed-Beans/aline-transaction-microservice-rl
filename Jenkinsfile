@@ -90,7 +90,8 @@ pipeline {
     post {
 
         always {
-            sh 'docker rmi "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$REPO_NAME:$(git rev-parse HEAD)"' 
+            sh 'docker rmi "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$REPO_NAME:$(git rev-parse HEAD)"'
+            sh 'docker rmi "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$REPO_NAME:latest"' 
         }
 
     }
